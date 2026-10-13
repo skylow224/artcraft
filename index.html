@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtCraft Launcher</title>
+	<link rel="icon" type="image/svg+xml" href="/assets/app-icon/artcraft-launcher.svg">
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --panel-bg: #141414;
+            --border-color: #525252;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --text-dim: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+		
+		@font-face {
+			font-family: Archivo;
+			src: url(../assets/fonts/Archivo-Variable.ttf)format("truetype");
+		}
+		
+		.archivo {
+			font-family: Archivo,Archivo Fallback;
+			font-style: normal
+			--font-archivo: "Archivo", "Archivo Fallback"
+		}
+		
+		@font-face {
+			font-family: Inter;
+			src: url(../assets/fonts/Inter-Variable.ttf)format("truetype");
+		}
+		
+		.inter {
+			font-family: Inter,Inter Fallback;
+			font-style: normal
+			--font-inter: "Inter", "Inter Fallback"
+		}
+		
+		@font-face {
+			font-family: Geist Mono;
+			src: url(../assets/fonts/GeistMono-Variable.ttf)format("truetype");
+		}
+		
+		.geist_mono {
+			font-family: Geist Mono,Geist Mono Fallback;
+			font-style: normal
+			--font-geist-mono: "Geist Mono", "Geist Mono Fallback"
+		}
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 1rem;
+        }
+
+        /* Top Navbar */
+        .navbar {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            background-color: #111;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 24px;
+        }
+
+        .logo {
+			display: flex;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            padding: 12px 24px;
+			border-right: 1px solid var(--border-color);
+            font-size: 130%;
+            cursor: pointer;
+        }
+
+        .nav-tab {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 80%;
+			word-spacing: 4px;
+        }
+
+        .nav-tab.active {
+            background-color: #fff;
+			color: var(--bg-color);
+			padding: 4px 8px;
+			font-weight: 800;
+        }
+
+        /* Controls Bar */
+        .controls-bar {
+            padding: 20px 24px 0px 24px;
+        }
+
+        .btn-all {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+			color: var(--bg-color);
+            font-weight: 600;
+			font-size: 80%;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+			font-size: 70%;
+        }
+
+        /* Grid Layout */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 16px;
+            padding: 0 24px;
+            margin-bottom: 30px;
+        }
+
+        /* App Card */
+        .app-card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111;
+            padding: 6px 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-badge-id {
+            color: #fff;
+            font-weight: 700;
+            padding: 2px 6px;
+			font-size: 70%;
+			margin: 4px;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+			font-size: 70%;
+        }
+
+        .card-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .card-links a:hover {
+            color: #fff;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .app-header-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .app-icon {
+            width: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-title-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-name {
+            font-weight: 700;
+            color: #fff;
+			font-size: 130%;
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            line-height: 1.3;
+            margin-bottom: 4px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+        }
+
+        .app-subdesc {
+            color: var(--text-dim);
+			font-size: 80%;
+        }
+
+        .card-meta {
+            padding: 10px 16px 0px 16px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            background: #111;
+			font-size: 80%;
+        }
+
+        .card-actions {
+            padding: 12px 16px;
+            display: flex;
+            background-color: var(--panel-bg);
+        }
+
+        .btn-download {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--bg-color);
+            padding: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            opacity: 80%;
+            border-color: #444;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            padding: 0 24px;
+            color: var(--text-dim);
+			font-size: 70%;
+        }
+    </style>
+	<script>
+		let categories = ['Multimedia', 'Office'];
+		let apps = [
+			{ category: 'Multimedia', name: 'PhotoCraft', version: '0.8.2', published: 'Oct 12, 2026', colorHex: '#2f7bf5', desc: 'Image editing', subDesc: 'Like Adobe Photoshop®' },
+			{ category: 'Multimedia', name: 'VectorCraft', version: '0.10.0', published: 'Oct 12, 2026', colorHex: '#e8573f', desc: 'Vector illustration', subDesc: 'Like Adobe Illustrator®' },
+			{ category: 'Multimedia', name: 'FilmCraft', version: '0.7.2', published: 'Oct 12, 2026', colorHex: '#8b5cf6', desc: 'Video editing, color and sound', subDesc: 'Like Adobe Premiere Pro®' },
+			{ category: 'Multimedia', name: 'LightCraft', version: '0.7.1', published: 'Oct 12, 2026', colorHex: '#f2a516', desc: 'Photo library and raw development', subDesc: 'Like Adobe Lightroom®' },
+			{ category: 'Multimedia', name: 'EffectCraft', version: '0.9.2', published: 'Oct 12, 2026', colorHex: '#e0368f', desc: 'Motion graphics and visual effects', subDesc: 'Like Adobe After Effects®' },
+			{ category: 'Multimedia', name: 'DesignCraft', version: '0.7.1', published: 'Oct 12, 2026', colorHex: '#7bb51c', desc: 'Page layout and publishing', subDesc: 'Like Adobe InDesign®' },
+			{ category: 'Multimedia', name: 'FigCraft', version: '0.5.1', published: 'Oct 12, 2026', colorHex: '#02da96', desc: 'Interface design and prototyping', subDesc: 'Like Figma®' },
+			{ category: 'Multimedia', name: 'SoundCraft', version: '0.6.1', published: 'Oct 12, 2026', colorHex: '#14a9c4', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®' },
+			{ category: 'Office', name: 'PdfCraft', version: '0.7.1', published: 'Oct 12, 2026', colorHex: '#12a58a', desc: 'Reading, organizing and protecting PDFs', subDesc: 'Like Adobe Acrobat®' },
+			{ category: 'Office', name: 'WordCraft', version: '0.6.1', published: 'Oct 12, 2026', colorHex: '#3b5bdb', desc: 'Writing and document design', subDesc: 'Like Microsoft Word®' },
+			{ category: 'Office', name: 'DeckCraft', version: '0.6.1', published: 'Oct 12, 2026', colorHex: '#f26b1d', desc: 'Presentations and slide shows', subDesc: 'Like Microsoft PowerPoint®' },
+			{ category: 'Office', name: 'GridCraft', version: '0.6.1', published: 'Oct 12, 2026', colorHex: '#1f9d55', desc: 'Spreadsheets and data', subDesc: 'Like Microsoft Excel®' },
+			{ category: 'Office', name: 'CADCraft', version: '0.6.2', published: 'Oct 12, 2026', colorHex: '#14a3c7', desc: 'Computer-aided design and drafting', subDesc: 'Like Autodesk AutoCAD®' },
+		];
+
+		document.addEventListener("DOMContentLoaded", () => {
+			let appContainer = document.querySelector('.app-container'); 
+			let appIndex = 0;
+
+			categories.forEach((o, i) => {
+				let categoryApps = apps.filter(x => x.category == o);
+				let categoryHeader = `
+					<div class="section-header">
+						<span class="geist_mono">${(i + 1).toString().padStart(2, '0')} / ${o} Apps</span>
+						<span class="geist_mono">${categoryApps.length} Apps</span>
+					</div>`;
+					
+				appContainer.innerHTML += categoryHeader;
+				
+				let appGrid = '<div class="app-grid">';
+				
+				categoryApps.forEach((p, j) => {
+					let appCard = `
+						<div class="app-card">
+							<div class="card-top-bar">
+								<span  class="card-badge-id geist_mono" style="background-color: ${p.colorHex};">${(appIndex + 1).toString().padStart(2, '0')}</span>
+								<div class="card-links">
+									<a target="_blank" href="https://getartcraft.com/apps/${p.name.toLowerCase()}">Website</a>
+									<a target="_blank" href="https://github.com/storytold/${p.name.toLowerCase()}">GitHub</a>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="app-header-row">
+									<div class="app-icon"><img src="/assets/app-icons/${p.name.toLowerCase()}.png" style="border-radius: 0.8rem;" /></div>
+									<div class="app-title-group">
+										<span class="app-name archivo">${p.name}</span>
+									</div>
+								</div>
+								<div class="app-desc inter">${p.desc}</div>
+								<div class="app-subdesc">${p.subDesc}</div>
+							</div>
+							<div class="card-meta">
+								<span>Version ${p.version} • ${p.published}</span>
+							</div>
+							<div class="card-actions">
+								<button class="btn-download" onclick="window.open('/${p.name.toLowerCase()}-web-${p.version}', '_blank')">Go</button>
+							</div>
+						</div>`;
+					
+					appGrid += appCard;
+					appIndex++;
+				});
+				
+				appGrid += '</div>';
+				
+				appContainer.innerHTML += appGrid;
+			});
+			
+			document.querySelector('.btn-all').innerHTML = 'ALL ' + apps.length;
+		});
+	</script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo archivo" onclick="window.open('https://getartcraft.com/', '_blank')"><img src="/assets/app-icon/artcraft-launcher.svg" style="width: 1.3rem; filter: contrast(0) brightness(9);" />RTCRAFT</div>
+        <div class="nav-left">
+            <span class="nav-tab active archivo">Launcher</span>
+            <span class="nav-tab archivo">Craft App Suite</span>
+        </div>
+        <div class="nav-right">
+        </div>
+    </header>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+        <button class="btn-all geist_mono"></button>
+        <div class="controls-right">
+        </div>
+    </div>
+
+	<!-- Applications -->
+	<div class="app-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+		Adobe, Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects and InDesign are either registered trademarks of Adobe in the United States and/or other countries. Microsoft, Word, PowerPoint and Excel are trademarks of the Microsoft group of companies. Autodesk and AutoCAD are registered trademarks of Autodesk, Inc. Avid and Pro Tools are trademarks or registered trademarks of Avid Technology, Inc. All other trademarks are the property of their respective owners. These names are used only to describe what each Craft App is for; the Craft App Suite is independent and is not affiliated with, sponsored by or endorsed by any of these companies.
+    </footer>
+
+</body>
+</html>
