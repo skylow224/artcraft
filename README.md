@@ -1,8 +1,8 @@
-[Unofficial] ArtCraft Launcher + all 13 apps, usable offline.
+[Unofficial] All 13 ArtCraft apps, usable offline.
 
-To be updated regularly (manually) using their web builds.
+Updated regularly using their bi-daily builds.
 
-https://hub.docker.com/repository/docker/skylow224/artcraft/general
+https://hub.docker.com/r/skylow224/artcraft
 
 Roadmap:
 - Rewrite with proper backend
