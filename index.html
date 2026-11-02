@@ -280,27 +280,33 @@
         }
     </style>
 	<script>
-		let categories = ['Multimedia', 'Office'];
-		let dateUpdated = 'Oct 28, 2026';
+		let categories = ['Multimedia', 'Office', 'AI'];
+		let dateUpdated = 'Nov 2, 2026';
 		let apps = [
-			{ category: 'Multimedia', name: 'PhotoCraft', version: '0.17.0', colorBadge: '#2f7bf5', colorTitle: '#7fb0ff', colorTitle: '#7fb0ff', desc: 'Image editing', subDesc: 'Like Adobe Photoshop®' },
-			{ category: 'Multimedia', name: 'VectorCraft', version: '0.18.0', colorBadge: '#e8573f', colorTitle: '#ff8a70', desc: 'Vector illustration', subDesc: 'Like Adobe Illustrator®' },
-			{ category: 'Multimedia', name: 'FilmCraft', version: '0.14.0', colorBadge: '#8b5cf6', colorTitle: '#b69cff', desc: 'Video editing, color and sound', subDesc: 'Like Adobe Premiere Pro®' },
-			{ category: 'Multimedia', name: 'LightCraft', version: '0.15.0', colorBadge: '#f2a516', colorTitle: '#ffc14d', desc: 'Photo library and raw development', subDesc: 'Like Adobe Lightroom®' },
-			{ category: 'Multimedia', name: 'EffectCraft', version: '0.18.0', colorBadge: '#e0368f', colorTitle: '#ff7ab8', desc: 'Motion graphics and visual effects', subDesc: 'Like Adobe After Effects®' },
-			{ category: 'Multimedia', name: 'DesignCraft', version: '0.14.0', colorBadge: '#7bb51c', colorTitle: '#a6e04a', desc: 'Page layout and publishing', subDesc: 'Like Adobe InDesign®' },
-			{ category: 'Multimedia', name: 'FigCraft', version: '0.12.1', colorBadge: '#02da96', colorTitle: '#4fe8b6', desc: 'Interface design and prototyping', subDesc: 'Like Figma®' },
-			{ category: 'Multimedia', name: 'SoundCraft', version: '0.14.0', colorBadge: '#1fa5c9', colorTitle: '#5fd0ee', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®' },
-			{ category: 'Office', name: 'PdfCraft', version: '0.15.0', colorBadge: '#12a48a', colorTitle: '#3fd6b8', desc: 'Reading, organizing and protecting PDFs', subDesc: 'Like Adobe Acrobat®' },
-			{ category: 'Office', name: 'WordCraft', version: '0.12.0', colorBadge: '#3f5fe0', colorTitle: '#7fb0ff', desc: 'Writing and document design', subDesc: 'Like Microsoft Word®' },
-			{ category: 'Office', name: 'DeckCraft', version: '0.12.0', colorBadge: '#f07a1e', colorTitle: '#ffa060', desc: 'Presentations and slide shows', subDesc: 'Like Microsoft PowerPoint®' },
-			{ category: 'Office', name: 'GridCraft', version: '0.13.0', colorBadge: '#1f9d55', colorTitle: '#4fd68a', desc: 'Spreadsheets and data', subDesc: 'Like Microsoft Excel®' },
-			{ category: 'Office', name: 'CADCraft', version: '0.14.0', colorBadge: '#3ea6e8', colorTitle: '#7cc8ff', desc: 'Computer-aided design and drafting', subDesc: 'Like Autodesk AutoCAD®' },
+			{ index: 14, category: 'Office', name: 'CADCraft', version: '0.16.0', colorBadge: '#3ea6e8', colorTitle: '#7cc8ff', desc: 'Computer-aided design and drafting', subDesc: 'Like Autodesk AutoCAD®' },
+			{ index: 16, category: 'AI', name: 'CraftAnything', version: '0.3.0', colorBadge: '#4e7bfb', colorTitle: '#1659c4', desc: 'Have AI build a version of anything', subDesc: 'Like ArtCraft', appOverride: 'craft-anything' },
+			{ index: 12, category: 'Office', name: 'DeckCraft', version: '0.14.1', colorBadge: '#f07a1e', colorTitle: '#ffa060', desc: 'Presentations and slide shows', subDesc: 'Like Microsoft PowerPoint®' },
+			{ index: 5, category: 'Multimedia', name: 'DesignCraft', version: '0.16.0', colorBadge: '#7bb51c', colorTitle: '#a6e04a', desc: 'Page layout and publishing', subDesc: 'Like Adobe InDesign®' },
+			{ index: 4, category: 'Multimedia', name: 'EffectCraft', version: '0.20.0', colorBadge: '#e0368f', colorTitle: '#ff7ab8', desc: 'Motion graphics and visual effects', subDesc: 'Like Adobe After Effects®' },
+			{ index: 6, category: 'Multimedia', name: 'FigCraft', version: '0.14.0', colorBadge: '#02da96', colorTitle: '#4fe8b6', desc: 'Interface design and prototyping', subDesc: 'Like Figma®' },
+			{ index: 2, category: 'Multimedia', name: 'FilmCraft', version: '0.16.0', colorBadge: '#8b5cf6', colorTitle: '#b69cff', desc: 'Video editing, color and sound', subDesc: 'Like Adobe Premiere Pro®' },
+			{ index: 13, category: 'Office', name: 'GridCraft', version: '0.15.0', colorBadge: '#1f9d55', colorTitle: '#4fd68a', desc: 'Spreadsheets and data', subDesc: 'Like Microsoft Excel®' },
+			{ index: 9, category: 'Multimedia', name: 'MaterialCraft', version: '', colorBadge: '#178a9c', colorTitle: '#178a9c', desc: 'Node-based material designer', subDesc: 'Like Adobe Substance 3D Designer®', upcoming: true },
+			{ index: 3, category: 'Multimedia', name: 'LightCraft', version: '0.17.0', colorBadge: '#f2a516', colorTitle: '#ffc14d', desc: 'Photo library and raw development', subDesc: 'Like Adobe Lightroom®' },
+			{ index: 10, category: 'Office', name: 'PdfCraft', version: '0.17.0', colorBadge: '#12a48a', colorTitle: '#3fd6b8', desc: 'Reading, organizing and protecting PDFs', subDesc: 'Like Adobe Acrobat®' },
+			{ index: 0, category: 'Multimedia', name: 'PhotoCraft', version: '0.19.0', colorBadge: '#2f7bf5', colorTitle: '#7fb0ff', desc: 'Image editing', subDesc: 'Like Adobe Photoshop®' },
+			{ index: 15, category: 'Office', name: 'SolidCraft', version: '0.30.1', colorBadge: '#609eec', colorTitle: '#1f58b5', desc: 'Parametric 3D CAD', subDesc: 'Like Autodesk Fusion®', websiteOverride: 'https://solidcraft.io/', githubOverride: 'https://github.com/tangency-labs/solidcraft' },
+			{ index: 7, category: 'Multimedia', name: 'SoundCraft', version: '0.16.0', colorBadge: '#1fa5c9', colorTitle: '#5fd0ee', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®' },
+			{ index: 8, category: 'Multimedia', name: 'TextureCraft', version: '0.2.0', colorBadge: '#c2672b', colorTitle: '#9c4a15', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®' },
+			{ index: 1, category: 'Multimedia', name: 'VectorCraft', version: '0.20.0', colorBadge: '#e8573f', colorTitle: '#ff8a70', desc: 'Vector illustration', subDesc: 'Like Adobe Illustrator®' },
+			{ index: 11, category: 'Office', name: 'WordCraft', version: '0.14.0', colorBadge: '#3f5fe0', colorTitle: '#7fb0ff', desc: 'Writing and document design', subDesc: 'Like Microsoft Word®' },
 		];
 
 		document.addEventListener("DOMContentLoaded", () => {
 			let appContainer = document.querySelector('.app-container'); 
 			let appIndex = 0;
+			
+			apps = apps.sort((a, b) => a.index - b.index);
 
 			categories.forEach((o, i) => {
 				let categoryApps = apps.filter(x => x.category == o);
@@ -320,8 +326,8 @@
 							<div class="card-top-bar">
 								<span  class="card-badge-id geist_mono" style="background-color: ${p.colorBadge};">${(appIndex + 1).toString().padStart(2, '0')}</span>
 								<div class="card-links">
-									<a target="_blank" href="https://getartcraft.com/apps/${p.name.toLowerCase()}">Website</a>
-									<a target="_blank" href="https://github.com/storytold/${p.name.toLowerCase()}">GitHub</a>
+									${p.upcoming ? "" : "<a target='_blank' href='" + (p.websiteOverride ?? ("https://getartcraft.com/apps/" + (p.appOverride ?? p.name.toLowerCase()))) + "'>Website</a>"}
+									<a target="_blank" href="${p.githubOverride ?? "https://github.com/storytold/" + (p.appOverride ?? p.name.toLowerCase())}">GitHub</a>
 								</div>
 							</div>
 							<div class="card-body">
@@ -335,12 +341,13 @@
 								<div class="app-subdesc">${p.subDesc}</div>
 							</div>
 							<div class="card-meta">
-								<span>Version ${p.version} • ${p.dateOverride ?? dateUpdated}</span>
+								${p.upcoming ? "-" : "<span>Version " + p.version + " • " + (p.dateOverride ?? dateUpdated) + "</span>"}
 							</div>
 							<div class="card-actions">
 								${p.disabled ?
 									"<button class='btn-download disabled'>N/A</button>"
-									: "<button class='btn-download' onclick=\"window.open('/" + p.name.toLowerCase() + "-web-" + p.version +"', '_blank')\">Go</button>"}
+									: p.upcoming ? "<button class='btn-download disabled'>Coming Soon</button>"
+										: "<button class='btn-download' onclick=\"window.open('/" + (p.appOverride ?? p.name.toLowerCase()) + "-web-" + p.version +"', '_blank')\">Go</button>"}
 								
 							</div>
 						</div>`;
@@ -382,7 +389,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-		Adobe, Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects and InDesign are either registered trademarks of Adobe in the United States and/or other countries. Microsoft, Word, PowerPoint and Excel are trademarks of the Microsoft group of companies. Autodesk and AutoCAD are registered trademarks of Autodesk, Inc. Avid and Pro Tools are trademarks or registered trademarks of Avid Technology, Inc. All other trademarks are the property of their respective owners. These names are used only to describe what each Craft App is for; the Craft App Suite is independent and is not affiliated with, sponsored by or endorsed by any of these companies.
+		Adobe, Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects and InDesign are either registered trademarks of Adobe in the United States and/or other countries. Microsoft, Word, PowerPoint and Excel are trademarks of the Microsoft group of companies. Autodesk, AutoCAD and Fusion are registered trademarks of Autodesk, Inc. Avid and Pro Tools are trademarks or registered trademarks of Avid Technology, Inc. All other trademarks are the property of their respective owners. These names are used only to describe what each Craft App is for; the Craft App Suite is independent and is not affiliated with, sponsored by or endorsed by any of these companies.
     </footer>
 
 </body>
