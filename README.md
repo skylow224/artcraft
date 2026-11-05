@@ -29,21 +29,21 @@ http://localhost:8080
 
 Apps:<br>
 - Craft Anything
-- PhotoCraft<br>
-- VectorCraft<br>
-- FilmCraft<br>
-- LightCraft<br>
-- EffectCraft<br>
-- DesignCraft<br>
-- FigCraft<br>
-- SoundCraft<br>
-- TextureCraft<br>
-- MaterialCraft<br>
-- PdfCraft<br>
-- WordCraft<br>
-- DeckCraft<br>
-- GridCraft<br>
-- CADCraft<br>
+- PhotoCraft
+- VectorCraft
+- FilmCraft
+- LightCraft
+- EffectCraft
+- DesignCraft
+- FigCraft
+- SoundCraft
+- TextureCraft
+- MaterialCraft
+- PdfCraft
+- WordCraft
+- DeckCraft
+- GridCraft
+- CADCraft
 - SolidCraft
 
 <br>
