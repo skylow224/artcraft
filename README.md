@@ -1,4 +1,4 @@
-__[Unofficial] All 15+1 ArtCraft web apps, usable offline.__
+__[Unofficial] All 16+2 ArtCraft web apps, usable offline.__
 
 Updated regularly.
 
@@ -28,23 +28,25 @@ http://localhost:8080
 <br>
 
 Apps:<br>
-- Craft Anything
 - PhotoCraft
 - VectorCraft
 - FilmCraft
 - LightCraft
 - EffectCraft
 - DesignCraft
-- FigCraft
 - SoundCraft
 - TextureCraft
 - MaterialCraft
+- AniCraft
+- FigCraft
 - PdfCraft
 - WordCraft
 - DeckCraft
 - GridCraft
+- MailCraft
 - CADCraft
 - SolidCraft
+- Craft Anything
 
 <br>
 <hr>
