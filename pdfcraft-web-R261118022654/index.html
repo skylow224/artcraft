@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PdfCraft</title>
+    
+<script type="module">
+import init, * as bindings from './pdfcraft-web-4cd8b09009be3b6c.js';
+const wasm = await init({ module_or_path: './pdfcraft-web-4cd8b09009be3b6c_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <!-- Recognises text off the page's thread (crates/ui-egui/src/workflows/ocr_web.rs). -->
+    
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #f1f1f3; }
+      canvas { width: 100%; height: 100%; display: block; outline: none; }
+      @media (prefers-color-scheme: dark) { html, body { background: #19191c; } }
+    </style>
+  <link rel="modulepreload" href="./pdfcraft-web-4cd8b09009be3b6c.js" crossorigin="anonymous" integrity="sha384-e1/tBP0bTalLgsG4xZo1TKygDbInp/PnzfYaCmTEExDL9FpDSorLucqB7OmEqnLw"><link rel="modulepreload" href="./snippets/eframe-d31a8450ea12dfc1/inline0.js" crossorigin="anonymous" integrity="sha384-uPZQ72BwgZ4v7Km6+UIFbkDDlt7ShGEsAVEHVN/+wZSGFhItJZB83iKMFQXauTSs"><link rel="preload" href="./pdfcraft-web-4cd8b09009be3b6c_bg.wasm" crossorigin="anonymous" integrity="sha384-iJdC6lrxjikfwgqlHl9hDNGf7u7xuE69Hv7YujhL2U1ydPGXLVyM8xEOpAvjcNvZ" as="fetch" type="application/wasm">  <meta name="pdfcraft-ocr-worker" content="./pdfcraft-ocr-worker-562d4b3c1b03d5de_loader.js" />
+  </head>
+  <body>
+    <canvas id="pdfcraft"></canvas>
+  </body>
+</html>

@@ -8,10 +8,9 @@
     <style>
         :root {
             --bg-color: #121316;
-            --panel-bg: #121316;
+            --panel-bg: #060607;
             --border-color: #4f5050;
             --text-main: #ffffff;
-            --text-muted: #939493;
             --text-dim: #656566;
         }
 
@@ -20,13 +19,13 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			color: #939493;
         }
 		
 		@font-face {
 			font-family: Archivo;
 			src: url(../assets/fonts/Archivo-Variable.ttf)format("truetype");
 		}
-		
 		.archivo {
 			font-family: Archivo,Archivo Fallback;
 		}
@@ -35,7 +34,6 @@
 			font-family: Inter;
 			src: url(../assets/fonts/Inter-Variable.ttf)format("truetype");
 		}
-		
 		.inter {
 			font-family: Inter,Inter Fallback;
 		}
@@ -44,9 +42,22 @@
 			font-family: Geist Mono;
 			src: url(../assets/fonts/GeistMono-Variable.ttf)format("truetype");
 		}
-		
 		.geist_mono {
 			font-family: Geist Mono,Geist Mono Fallback;
+		}
+		
+		.fs-70p {
+			font-size: 70%;
+			letter-spacing: .1em;
+		}
+		.fs-80p {
+			font-size: 80%;
+		}
+		.fw-600 {
+			font-weight: 600;
+		}
+		.fw-700 {
+			font-weight: 700;
 		}
 
         body {
@@ -63,55 +74,49 @@
             display: flex;
             justify-content: start;
             align-items: center;
-            background-color: #111;
+            background-color: var(--panel-bg);
             border-bottom: 1px solid var(--border-color);
         }
 
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 12px 24px;
+            gap: .5em;
+            padding: 0 1em;
         }
 
         .logo {
 			display: flex;
-            font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: .1em;
             color: #fff;
-            padding: 12px 24px;
+            padding: .75rem 1rem;
 			border-right: 1px solid var(--border-color);
-            font-size: 130%;
+            font-size: 110%;
             cursor: pointer;
+			font-stretch: expanded;
         }
 
         .nav-tab {
-            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 80%;
-			word-spacing: 4px;
+			word-spacing: .5em;
         }
 
         .nav-tab.active {
             background-color: #fff;
 			color: var(--bg-color);
-			padding: 4px 8px;
-			font-weight: 800;
+			padding: .25rem .5rem;
         }
 
         /* Controls Bar */
         .controls-bar {
-            padding: 20px 24px 0px 24px;
+            padding: 20px 24px 6px 24px;
         }
 
         .btn-all {
             background-color: #fff;
             border: 1px solid var(--border-color);
-            padding: 8px 12px;
+            padding: .5rem;
 			color: var(--bg-color);
-            font-weight: 600;
-			font-size: 70%;
         }
 
         /* Section Titles */
@@ -119,22 +124,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
-            letter-spacing: 1px;
-            color: var(--text-muted);
+            padding: 1em 2em 0 2em;
             text-transform: uppercase;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 16px;
-			font-size: 70%;
         }
 
         /* Grid Layout */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 16px;
-            padding: 0 24px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
+            gap: 1em;
+			padding: .5em;
+			margin: 1em;
+            border: 1px solid var(--border-color);
         }
 
         /* App Card */
@@ -152,30 +153,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #111;
-            padding: 6px 10px;
+            padding: .25em .75em;
             border-bottom: 1px solid var(--border-color);
         }
 
         .card-badge-id {
             color: #000;
-            font-weight: 700;
             padding: 4px 8px;
-			font-size: 70%;
 			margin: 4px;
         }
 
         .card-links {
             display: flex;
             gap: 12px;
-            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-			font-size: 70%;
         }
 
         .card-links a {
-            color: var(--text-muted);
             text-decoration: none;
         }
 
@@ -184,18 +178,18 @@
         }
 
         .card-body {
-            padding: 16px;
+            padding: 1em 1em .5em 1em;
         }
 
         .app-header-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: .75em;
+            margin-bottom: .25em;
         }
 
         .app-icon {
-            width: 4rem;
+            width: 4em;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,39 +210,30 @@
         }
 
         .app-name {
-            font-weight: 700;
-            color: #fff;
 			font-size: 130%;
         }
 
         .app-desc {
-            color: var(--text-muted);
             line-height: 1.3;
-			font-size: 80%;
 			overflow: hidden;
 			text-overflow: ellipsis;
         }
 
         .app-subdesc {
             color: var(--text-dim);
-			font-size: 80%;
         }
 
         .card-meta {
-            padding: 10px 16px 0px 16px;
+            padding: .5em 1.5em 0 1.5em;
             border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: var(--text-muted);
-            background: #111;
-			font-size: 80%;
         }
 
         .card-actions {
-            padding: 12px 16px;
+            padding: .5em 1em;
             display: flex;
-            background-color: var(--panel-bg);
         }
 
         .btn-download {
@@ -256,8 +241,7 @@
             background-color: #fff;
             border: 1px solid var(--border-color);
             color: var(--bg-color);
-            padding: 8px;
-            font-weight: 700;
+            padding: .5em;
             letter-spacing: 0.5px;
             text-align: center;
             cursor: pointer;
@@ -273,35 +257,35 @@
 
         /* Footer */
         .footer {
-            margin-top: auto;
-            padding: 0 24px;
+            margin-top: 2em;
+            padding: 0 2em;
             color: var(--text-dim);
-			font-size: 70%;
+			text-align: justify;
         }
     </style>
 	<script>
 		let categories = ['Digital Content Creation', 'Interface and Product Design', 'Office Productivity', 'Computer-Aided Design', 'Reverse Engineering Tools'];
-		let dateUpdated = 'Nov 10, 2026';
+		let dateUpdated = 'Nov 18, 2026';
 		let apps = [
-			{ index: 9, category: 'Digital Content Creation', name: 'AniCraft', version: '-', colorAccent: '#dac604', colorTitle: '#dac604', desc: '2D vector animation studio', subDesc: 'Like Adobe Animate®', upcoming: true },
-			{ index: 16, category: 'Computer-Aided Design', name: 'CADCraft', version: '0.19.0', colorAccent: '#69a8d7', colorTitle: '#7cc7ff', desc: 'Computer-aided design and drafting', subDesc: 'Like Autodesk AutoCAD®', dateOverride: 'Nov 9, 2026' },
-			{ index: 18, category: 'Reverse Engineering Tools', name: 'Craft Anything', version: '0.6.0', colorAccent: '#4e7bfb', colorTitle: '#4e7bfb', desc: 'Have AI build a version of anything', subDesc: 'Like ArtCraft', appOverride: 'craft-anything', dateOverride: 'Nov 9, 2026' },
-			{ index: 13, category: 'Office Productivity', name: 'DeckCraft', version: '0.17.0', colorAccent: '#d68753', colorTitle: '#ffa060', desc: 'Presentations and slide shows', subDesc: 'Like Microsoft PowerPoint®', dateOverride: 'Nov 9, 2026' },
-			{ index: 5, category: 'Digital Content Creation', name: 'DesignCraft', version: '0.19.0', colorAccent: '#8cbc41', colorTitle: '#a6e04a', desc: 'Page layout and publishing', subDesc: 'Like Adobe InDesign®', dateOverride: 'Nov 9, 2026' },
-			{ index: 4, category: 'Digital Content Creation', name: 'EffectCraft', version: '0.23.1', colorAccent: '#d6689c', colorTitle: '#ff7ab8', desc: 'Motion graphics and visual effects', subDesc: 'Like Adobe After Effects®' },
-			{ index: 10, category: 'Interface and Product Design', name: 'FigCraft', version: '0.17.0', colorAccent: '#44c49b', colorTitle: '#4fe8b6', desc: 'Interface design and prototyping', subDesc: 'Like Figma®', dateOverride: 'Nov 9, 2026' },
-			{ index: 2, category: 'Digital Content Creation', name: 'FilmCraft', version: '0.19.0', colorAccent: '#9a84d7', colorTitle: '#b69cff', desc: 'Video editing, color and sound', subDesc: 'Like Adobe Premiere Pro®', dateOverride: 'Nov 9, 2026' },
-			{ index: 14, category: 'Office Productivity', name: 'GridCraft', version: '0.18.0', colorAccent: '#44b475', colorTitle: '#4fd68a', desc: 'Spreadsheets and data', subDesc: 'Like Microsoft Excel®', dateOverride: 'Nov 9, 2026' },
-			{ index: 3, category: 'Digital Content Creation', name: 'LightCraft', version: '0.20.0', colorAccent: '#d6a344', colorTitle: '#ffc14d', desc: 'Photo library and raw development', subDesc: 'Like Adobe Lightroom®', dateOverride: 'Nov 9, 2026' },
-			{ index: 15, category: 'Office Productivity', name: 'MailCraft', version: '0.11.1', colorAccent: '#79a2d7', colorTitle: '#8fbfff', desc: 'Mail, calendar and contacts', subDesc: 'Like Microsoft Outlook®', dateOverride: 'Nov 8, 2026' },
-			{ index: 8, category: 'Digital Content Creation', name: 'MaterialCraft', version: '0.3.0', colorAccent: '#55a7b3', colorTitle: '#63c5d3', desc: 'Node-based material designer', subDesc: 'Like Adobe Substance 3D™ Designer®', dateOverride: 'Nov 9, 2026' },
-			{ index: 11, category: 'Office Productivity', name: 'PdfCraft', version: '0.20.0', colorAccent: '#cc3354', colorTitle: '#f23a62', desc: 'Reading, organizing and protecting PDFs', subDesc: 'Like Adobe Acrobat®', dateOverride: 'Nov 9, 2026' },
-			{ index: 0, category: 'Digital Content Creation', name: 'PhotoCraft', version: '0.22.0', colorAccent: '#6d95d7', colorTitle: '#7fb0ff', desc: 'Image editing', subDesc: 'Like Adobe Photoshop®', dateOverride: 'Nov 9, 2026' },
-			{ index: 17, category: 'Computer-Aided Design', name: 'SolidCraft', version: '0.30.1', colorAccent: '#77a6d7', colorTitle: '#8cc4ff', desc: 'Parametric 3D CAD', subDesc: 'Like Autodesk Fusion®', dateOverride: 'Nov 3, 2026', websiteOverride: 'https://solidcraft.io/', githubOverride: 'https://github.com/tangency-labs/solidcraft' },
-			{ index: 6, category: 'Digital Content Creation', name: 'SoundCraft', version: '0.19.0', colorAccent: '#52afc9', colorTitle: '#5fd0ee', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®', dateOverride: 'Nov 9, 2026' },
-			{ index: 7, category: 'Digital Content Creation', name: 'TextureCraft', version: '0.5.0', colorAccent: '#c17544', colorTitle: '#e58a4e', desc: '3D texture painting', subDesc: 'Like Adobe Substance 3D™ Painter®', dateOverride: 'Nov 9, 2026' },
-			{ index: 1, category: 'Digital Content Creation', name: 'VectorCraft', version: '0.23.0', colorAccent: '#d67561', colorTitle: '#ff8a70', desc: 'Vector illustration', subDesc: 'Like Adobe Illustrator®', dateOverride: 'Nov 9, 2026' },
-			{ index: 12, category: 'Office Productivity', name: 'WordCraft', version: '0.17.0', colorAccent: '#798ad7', colorTitle: '#8ea2ff', desc: 'Writing and document design', subDesc: 'Like Microsoft Word®', dateOverride: 'Nov 9, 2026' },
+			{ index: 9, category: 0, name: 'AniCraft', version: '-', colorAccent: '#dac604', colorTitle: '#dac604', desc: '2D vector animation studio', subDesc: 'Like Adobe Animate®', upcoming: true },
+			{ index: 16, category: 3, name: 'CADCraft', version: 'R261118011601', colorAccent: '#69a8d7', colorTitle: '#7cc7ff', desc: 'Computer-aided design and drafting', subDesc: 'Like Autodesk AutoCAD®' },
+			{ index: 18, category: 4, name: 'Craft Anything', version: '0.6.1', colorAccent: '#4e7bfb', colorTitle: '#4e7bfb', desc: 'Have AI build a version of anything', subDesc: 'Like ArtCraft', appOverride: 'craft-anything', dateOverride: 'Nov 11, 2026' },
+			{ index: 13, category: 2, name: 'DeckCraft', version: 'R261118012153', colorAccent: '#d68753', colorTitle: '#ffa060', desc: 'Presentations and slide shows', subDesc: 'Like Microsoft PowerPoint®' },
+			{ index: 5, category: 0, name: 'DesignCraft', version: 'R261117012752', colorAccent: '#8cbc41', colorTitle: '#a6e04a', desc: 'Page layout and publishing', subDesc: 'Like Adobe InDesign®', dateOverride: 'Nov 17, 2026' },
+			{ index: 4, category: 0, name: 'EffectCraft', version: 'R261118013839', colorAccent: '#d6689c', colorTitle: '#ff7ab8', desc: 'Motion graphics and visual effects', subDesc: 'Like Adobe After Effects®' },
+			{ index: 10, category: 1, name: 'FigCraft', version: 'R261118014339', colorAccent: '#44c49b', colorTitle: '#4fe8b6', desc: 'Interface design and prototyping', subDesc: 'Like Figma®' },
+			{ index: 2, category: 0, name: 'FilmCraft', version: 'R261118015005', colorAccent: '#9a84d7', colorTitle: '#b69cff', desc: 'Video editing, color and sound', subDesc: 'Like Adobe Premiere Pro®' },
+			{ index: 14, category: 2, name: 'GridCraft', version: 'R261118015916', colorAccent: '#44b475', colorTitle: '#4fd68a', desc: 'Spreadsheets and data', subDesc: 'Like Microsoft Excel®' },
+			{ index: 3, category: 0, name: 'LightCraft', version: 'R261118021831', colorAccent: '#d6a344', colorTitle: '#ffc14d', desc: 'Photo library and raw development', subDesc: 'Like Adobe Lightroom®' },
+			{ index: 15, category: 2, name: 'MailCraft', version: '0.13.0', colorAccent: '#79a2d7', colorTitle: '#8fbfff', desc: 'Mail, calendar and contacts', subDesc: 'Like Microsoft Outlook®', dateOverride: 'Nov 14, 2026', websiteOverride: 'https://mailcraft.work', githubOverride: 'https://github.com/UCS-Care-Group/mailcraft' },
+			{ index: 8, category: 0, name: 'MaterialCraft', version: 'R261118022228', colorAccent: '#55a7b3', colorTitle: '#63c5d3', desc: 'Node-based material designer', subDesc: 'Like Adobe Substance 3D™ Designer®' },
+			{ index: 11, category: 2, name: 'PdfCraft', version: 'R261118022654', colorAccent: '#cc3354', colorTitle: '#f23a62', desc: 'Reading, organizing and protecting PDFs', subDesc: 'Like Adobe Acrobat®' },
+			{ index: 0, category: 0, name: 'PhotoCraft', version: 'R261117023237', colorAccent: '#6d95d7', colorTitle: '#7fb0ff', desc: 'Image editing', subDesc: 'Like Adobe Photoshop®', dateOverride: 'Nov 17, 2026' },
+			{ index: 17, category: 3, name: 'SolidCraft', version: '0.44.1', colorAccent: '#77a6d7', colorTitle: '#8cc4ff', desc: 'Parametric 3D CAD', subDesc: 'Like Autodesk Fusion®', dateOverride: 'Nov 17, 2026', websiteOverride: 'https://solidcraft.io', githubOverride: 'https://github.com/tangency-labs/solidcraft' },
+			{ index: 6, category: 0, name: 'SoundCraft', version: 'R261118023935', colorAccent: '#52afc9', colorTitle: '#5fd0ee', desc: 'Recording, editing and mixing audio', subDesc: 'Like Avid Pro Tools®' },
+			{ index: 7, category: 0, name: 'TextureCraft', version: 'R261118024822', colorAccent: '#c17544', colorTitle: '#e58a4e', desc: '3D texture painting', subDesc: 'Like Adobe Substance 3D™ Painter®' },
+			{ index: 1, category: 0, name: 'VectorCraft', version: 'R261118025341', colorAccent: '#d67561', colorTitle: '#ff8a70', desc: 'Vector illustration', subDesc: 'Like Adobe Illustrator®' },
+			{ index: 12, category: 2, name: 'WordCraft', version: 'R261118031249', colorAccent: '#798ad7', colorTitle: '#8ea2ff', desc: 'Writing and document design', subDesc: 'Like Microsoft Word®' },
 		];
 
 		document.addEventListener("DOMContentLoaded", () => {
@@ -311,9 +295,9 @@
 			apps = apps.sort((a, b) => a.index - b.index);
 
 			categories.forEach((o, i) => {
-				let categoryApps = apps.filter(x => x.category == o);
+				let categoryApps = apps.filter(x => x.category == i);
 				let categoryHeader = `
-					<div class="section-header">
+					<div class="section-header fs-70p">
 						<span class="geist_mono">${(i + 1).toString().padStart(2, '0')} / ${o}</span>
 						<span class="geist_mono">${categoryApps.length} Apps</span>
 					</div>`;
@@ -326,8 +310,8 @@
 					let appCard = `
 						<div class="app-card">
 							<div class="card-top-bar">
-								<span  class="card-badge-id geist_mono" style="background-color: ${p.colorAccent};">${(appIndex + 1).toString().padStart(2, '0')}</span>
-								<div class="card-links">
+								<span  class="card-badge-id fs-70p fw-700 geist_mono" style="background-color: ${p.colorAccent};">${(appIndex + 1).toString().padStart(2, '0')}</span>
+								<div class="card-links fs-70p">
 									${p.upcoming ? "" : "<a target='_blank' href='" + (p.websiteOverride ?? ("https://getartcraft.com/apps/" + (p.appOverride ?? p.name.toLowerCase()))) + "'>Website</a>"}
 									<a target="_blank" href="${p.githubOverride ?? "https://github.com/storytold/" + (p.appOverride ?? p.name.toLowerCase())}">GitHub</a>
 								</div>
@@ -336,20 +320,22 @@
 								<div class="app-header-row">
 									<div class="app-icon"><img src="/assets/app-icons/${p.appOverride ?? p.name.toLowerCase()}.png" style="border-radius: 0.8rem;" /></div>
 									<div class="app-title-group">
-										<div class="app-name"><span class="archivo">${p.name.replace("Craft", "</span><span class='archivo' style='color: " + p.colorTitle + ";'>Craft</span>")}</div>
-										<div class="app-desc inter">${p.desc}</div>
+										<div class="app-name fw-700">
+											<span class="archivo" style='color: #fff;'>${p.name.replace("Craft", "<span class='archivo' style='color: " + p.colorTitle + ";'>Craft</span>")}</span>
+										</div>
+										<div class="app-desc fs-80p inter">${p.desc}</div>
 									</div>
 								</div>
-								<div class="app-subdesc">${p.subDesc}</div>
+								<div class="app-subdesc fs-80p">${p.subDesc}</div>
 							</div>
-							<div class="card-meta">
+							<div class="card-meta fs-80p">
 								${p.upcoming ? "-" : "<span>Version " + p.version + " • " + (p.dateOverride ?? dateUpdated) + "</span>"}
 							</div>
 							<div class="card-actions">
 								${p.disabled ?
-									"<button class='btn-download disabled'>N/A</button>"
-									: p.upcoming ? "<button class='btn-download disabled'>Coming Soon</button>"
-										: "<button class='btn-download' onclick=\"window.open('/" + (p.appOverride ?? p.name.toLowerCase()) + "-web-" + p.version +"', '_blank')\">Go</button>"}
+									"<button class='btn-download fw-600 disabled'>N/A</button>"
+									: p.upcoming ? "<button class='btn-download fw-600 disabled'>Coming Soon</button>"
+										: "<button class='btn-download fw-600' onclick=\"window.open('/" + (p.appOverride ?? p.name.toLowerCase()) + "-web-" + p.version +"', '_blank')\">Go</button>"}
 								
 							</div>
 						</div>`;
@@ -370,10 +356,10 @@
 <body>
     <!-- Navbar -->
     <header class="navbar">
-        <div class="logo archivo" onclick="window.open('https://getartcraft.com/', '_blank')"><img src="/assets/app-icon/artcraft-launcher.svg" style="width: 1.3rem; filter: contrast(0) brightness(9);" />RTCRAFT</div>
+        <div class="logo fw-700 archivo" onclick="window.open('https://getartcraft.com/', '_blank')"><img src="/assets/app-icon/artcraft-launcher.svg" style="width: 1em; filter: contrast(0) brightness(9);" />RTCRAFT</div>
         <div class="nav-left">
-            <span class="nav-tab active archivo">WEB</span>
-            <span class="nav-tab archivo">Craft App Suite</span>
+            <span class="nav-tab fs-70p fw-700 active archivo">WEB</span>
+            <span class="nav-tab fs-70p fw-700 archivo">Craft App Suite</span>
         </div>
         <div class="nav-right">
         </div>
@@ -381,7 +367,7 @@
 
     <!-- Controls Bar -->
     <div class="controls-bar">
-        <button class="btn-all geist_mono"></button>
+        <button class="btn-all fs-70p fw-600 geist_mono"></button>
         <div class="controls-right">
         </div>
     </div>
@@ -390,7 +376,7 @@
 	<div class="app-container"></div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer fs-70p">
 		Adobe, Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects, InDesign, Substance 3D, Painter, Designer and Animate are either registered trademarks of Adobe in the United States and/or other countries. Microsoft, Word, PowerPoint, Excel and Outlook are trademarks of the Microsoft group of companies. Autodesk, AutoCAD and Fusion are registered trademarks of Autodesk, Inc. Avid and Pro Tools are trademarks or registered trademarks of Avid Technology, Inc. All other trademarks are the property of their respective owners. These names are used only to describe what each Craft App is for; the Craft App Suite is independent and is not affiliated with, sponsored by or endorsed by any of these companies.
     </footer>
 
